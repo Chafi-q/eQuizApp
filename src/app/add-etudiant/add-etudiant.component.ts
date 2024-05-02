@@ -62,7 +62,6 @@ export class AddEtudiantComponent implements OnInit{
     if(this.data){
       this._etService.updateEtudiant(this.data.id,this.etForm.value).subscribe({
         next:(val:any)=>{
-          alert("Employee updated successfully");
           this.dialogRef.close(true);
         },error:(err:any)=>{
           console.error(err);

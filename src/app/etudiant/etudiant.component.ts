@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AddEtudiantComponent } from '../add-etudiant/add-etudiant.component';
 import { EtudiantService } from '../services/etudiant.service';
+import { CoreService } from '../core/core.service';
 
 @Component({
   selector: 'app-etudiant',
@@ -22,7 +23,11 @@ export class EtudiantComponent implements OnInit,AfterViewInit  {
   @ViewChild(MatPaginator) paginator!:MatPaginator;
   @ViewChild(MatSort) sort!:MatSort;
 
-  constructor(private router:Router,private http: HttpClient,private dialog:MatDialog,private __etService:EtudiantService) {
+  constructor(private router:Router,private http: HttpClient,
+    private dialog:MatDialog,
+    private __etService:EtudiantService,
+    private __coreService:CoreService
+    ) {
    
   }
   ngAfterViewInit(): void {
@@ -54,12 +59,14 @@ export class EtudiantComponent implements OnInit,AfterViewInit  {
     let value=(event?.target as HTMLInputElement).value;
     this.dataSource.filter=value.trim();
     
+    
   }
   openAddEtForm(){
     const dialogRef=this.dialog.open(AddEtudiantComponent);
     dialogRef.afterClosed().subscribe({
       next:(val)=>{
         if(val){
+          this.__coreService.openSnackBar('Etudiant Ajouté')
           this.getEtudiantList();
         }
       }
@@ -70,6 +77,7 @@ export class EtudiantComponent implements OnInit,AfterViewInit  {
   deleteEtudiant(id:string){
     this.__etService.deleteEtudiant(id).subscribe({
       next :(res)=>{
+        this.__coreService.openSnackBar('Etudiant Supprimé')
         this.getEtudiantList();
 
       },
@@ -85,6 +93,7 @@ export class EtudiantComponent implements OnInit,AfterViewInit  {
     dialogRef.afterClosed().subscribe({
       next:(val)=>{
         if(val){
+          this.__coreService.openSnackBar('Etudiant Modifié')
           this.getEtudiantList();
         }
       }

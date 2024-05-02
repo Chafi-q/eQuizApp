@@ -30,6 +30,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -51,7 +52,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,CommonModule,MatIconModule,MatListModule,MatButtonModule,MatMenuModule,
     MatDrawerContainer,MatDivider,MatToolbarModule,CommonModule,MatSidenavModule,MatTableModule,
     MatCardModule,MatFormFieldModule,MatPaginatorModule,HttpClientModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,MatSnackBarModule
   ],
   providers: [
     provideAnimationsAsync()
