@@ -23,6 +23,15 @@ import {MatCardModule} from '@angular/material/card';
 import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddEtudiantComponent } from './add-etudiant/add-etudiant.component'
+import {MatInputModule} from '@angular/material/input'
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 
@@ -34,13 +43,15 @@ import { HttpClientModule } from '@angular/common/http';
     EtudiantComponent,
     EnseignantComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    AddEtudiantComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,CommonModule,MatIconModule,MatListModule,MatButtonModule,MatMenuModule,
     MatDrawerContainer,MatDivider,MatToolbarModule,CommonModule,MatSidenavModule,MatTableModule,
-    MatCardModule,MatFormFieldModule,MatPaginatorModule,HttpClientModule
+    MatCardModule,MatFormFieldModule,MatPaginatorModule,HttpClientModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync()

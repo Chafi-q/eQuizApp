@@ -6,6 +6,7 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
 import { EnseignantComponent } from './enseignant/enseignant.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"login",component:LoginComponent},
