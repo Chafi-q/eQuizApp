@@ -1,24 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { AddEnseignantComponent } from '../add-enseignant/add-enseignant.component';
+import { EnseignantService } from '../services/enseignant.service';
+import { CoreService } from '../core/core.service';
 
 @Component({
-  selector: 'app-etudiant',
+  selector: 'app-enseignant',
   templateUrl: './enseignant.component.html',
   styleUrl: './enseignant.component.css'
 })
 export class EnseignantComponent implements OnInit,AfterViewInit  {
 
-  public students:any;
+
+  public professors:any;
   public dataSource: any=[];
-  public displayedColumns = ["id", "nom", "prenom","Email","Last Connexion","action"];
+  public displayedColumns = ["id", "nom", "prenom","Email","action"];
   @ViewChild(MatPaginator) paginator!:MatPaginator;
   @ViewChild(MatSort) sort!:MatSort;
 
-  constructor(private router:Router,private http: HttpClient) {
+  constructor(private router:Router,private http: HttpClient,
+    private dialog:MatDialog,
+    private __enService:EnseignantService,
+    private __coreService:CoreService,
+    ) {
    
   }
   ngAfterViewInit(): void {
@@ -28,23 +37,67 @@ export class EnseignantComponent implements OnInit,AfterViewInit  {
 
   ngOnInit(): void {
     
+   this.getEnseignantList();
+   
+  }
 
-    this.http.get<any>('http://127.0.0.1:8080/Enseignant/list').subscribe({
+  getEnseignantList(){
+    this.__enService.getEnseignantList().subscribe({
       next: (data) => {
-        this.students = data; // Assuming your API response is an array of student objects
-        this.dataSource = new MatTableDataSource(this.students);
+        this.professors = data; 
+        this.dataSource = new MatTableDataSource(this.professors);
         console.log(this.dataSource.data);
       },
       error: (error) => {
-        console.error('Error fetching students:', error);
+        console.error('Error fetching professors:', error);
       }
     });
   }
   
 
-  filterStudents($event: Event) {
+  applyFilter($event:Event) {
     let value=(event?.target as HTMLInputElement).value;
-    this.dataSource.filter=value;
+    this.dataSource.filter=value.trim();
+    
+    
+  }
+  openAddEnForm(){
+    const dialogRef=this.dialog.open(AddEnseignantComponent);
+    dialogRef.afterClosed().subscribe({
+      next:(val)=>{
+        if(val){
+          this.__coreService.openSnackBar('Enseignant Ajouté')
+          this.getEnseignantList();
+        }
+      }
+    })
+    
+  }
+
+  deleteEnseignant(id:string){
+    this.__enService.deleteEnseignant(id).subscribe({
+      next :(res)=>{
+        this.__coreService.openSnackBar('Enseignant Supprimé')
+        this.getEnseignantList();
+
+      },
+      error:console.log,
+    })
+  }
+
+
+  openEditEnForm(data:any){
+    const dialogRef=this.dialog.open(AddEnseignantComponent,{
+      data:data
+    });
+    dialogRef.afterClosed().subscribe({
+      next:(val)=>{
+        if(val){
+          this.__coreService.openSnackBar('Enseignant Modifié')
+          this.getEnseignantList();
+        }
+      }
+    })
     
   }
 

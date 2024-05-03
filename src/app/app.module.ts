@@ -31,6 +31,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AddEnseignantComponent } from './add-enseignant/add-enseignant.component';
 
 
 
@@ -45,7 +46,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     EnseignantComponent,
     DashboardComponent,
     LoginComponent,
-    AddEtudiantComponent
+    AddEtudiantComponent,
+    AddEnseignantComponent
   ],
   imports: [
     BrowserModule,
