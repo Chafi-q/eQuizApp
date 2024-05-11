@@ -21,8 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddEtudiantComponent } from './add-etudiant/add-etudiant.component'
 import {MatInputModule} from '@angular/material/input'
@@ -31,7 +30,32 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarModule } from 'primeng/sidebar';
+import { BadgeModule } from 'primeng/badge';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { AppMenuComponent } from './admin-template/layout/app.menu.component';
+import { AppTopBarComponent } from './admin-template/layout/app.topbar.component';
+import { AppSidebarComponent } from "./admin-template/layout/app.sidebar.component";
+import { AppFooterComponent } from './admin-template/layout/app.footer.component';
+import { FormsModule } from '@angular/forms';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
+import { RatingModule } from 'primeng/rating';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DropdownModule } from 'primeng/dropdown';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DialogModule } from 'primeng/dialog';
+import { AppMenuitemComponent } from './admin-template/layout/app.menuitem.component';
 import { AddEnseignantComponent } from './add-enseignant/add-enseignant.component';
+
+
 
 
 
@@ -41,6 +65,11 @@ import { AddEnseignantComponent } from './add-enseignant/add-enseignant.componen
 @NgModule({
   declarations: [
     AppComponent,
+    AppFooterComponent,
+    AppMenuComponent,
+    AppSidebarComponent,
+    AppTopBarComponent,
+    AppMenuitemComponent,
     AdminTemplateComponent,
     EtudiantComponent,
     EnseignantComponent,
@@ -54,7 +83,31 @@ import { AddEnseignantComponent } from './add-enseignant/add-enseignant.componen
     AppRoutingModule,CommonModule,MatIconModule,MatListModule,MatButtonModule,MatMenuModule,
     MatDrawerContainer,MatDivider,MatToolbarModule,CommonModule,MatSidenavModule,MatTableModule,
     MatCardModule,MatFormFieldModule,MatPaginatorModule,HttpClientModule,MatDialogModule,MatInputModule,MatDatepickerModule,MatNativeDateModule,MatSelectModule,
-    ReactiveFormsModule,MatSnackBarModule
+    ReactiveFormsModule,MatSnackBarModule,AppRoutingModule, CommonModule,
+    FileUploadModule,
+    FormsModule,
+    ButtonModule,
+    RippleModule,
+    ToastModule,
+    ToolbarModule,
+    RatingModule,
+    InputTextModule,
+    InputTextareaModule,
+    DropdownModule,
+    RadioButtonModule,
+    InputNumberModule,
+    DialogModule,  
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    InputTextModule,
+    SidebarModule,
+    BadgeModule,
+    RadioButtonModule,
+    InputSwitchModule,
+    RippleModule,
+    RouterModule,
   ],
   providers: [
     provideAnimationsAsync()
