@@ -1,4 +1,4 @@
-<!--<div mat-dialog-title>AJOUTER ENSEIGNANT</div>
+<div mat-dialog-title>AJOUTER ENSEIGNANT</div>
 <form [formGroup]="enForm" (ngSubmit)="onFormSubmit()">
 <div mat-dialog-content style="padding-top: 20px;">
     <div class="row row-mt-20 first-field">
@@ -39,9 +39,10 @@
 </div>
 
 <div mat-dialog-actions class="actions">
-    <button mat-raised-button>Quitter</button>
-    <button mat-raised-button color="primary" type="submit">{{data?'Modifier':'Enregistrer'}}</button>
+    <button mat-raised-button class="p-button-outlined p-button-secondary">Quitter</button>
+    <button mat-raised-button class="p-button-outlined" type="submit">{{data?'Modifier':'Enregistrer'}}</button>
+  
 </div>
 
 </form>
--->
+

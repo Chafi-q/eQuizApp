@@ -54,6 +54,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
 import { AppMenuitemComponent } from './admin-template/layout/app.menuitem.component';
 import { AddEnseignantComponent } from './add-enseignant/add-enseignant.component';
+import {CheckboxModule} from 'primeng/checkbox';
+import { PasswordModule } from "primeng/password";
 
 
 
@@ -108,6 +110,8 @@ import { AddEnseignantComponent } from './add-enseignant/add-enseignant.componen
     InputSwitchModule,
     RippleModule,
     RouterModule,
+    CheckboxModule,
+    PasswordModule
   ],
   providers: [
     provideAnimationsAsync()
