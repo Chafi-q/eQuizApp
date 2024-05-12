@@ -56,6 +56,8 @@ import { AppMenuitemComponent } from './admin-template/layout/app.menuitem.compo
 import { AddEnseignantComponent } from './add-enseignant/add-enseignant.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import { PasswordModule } from "primeng/password";
+import { SelectButtonModule } from 'primeng/selectbutton';
+
 
 
 
@@ -111,7 +113,8 @@ import { PasswordModule } from "primeng/password";
     RippleModule,
     RouterModule,
     CheckboxModule,
-    PasswordModule
+    PasswordModule,
+    SelectButtonModule
   ],
   providers: [
     provideAnimationsAsync()

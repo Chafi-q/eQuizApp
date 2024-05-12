@@ -6,7 +6,11 @@
                     <img src="assets/layout/images/logo-dark.svg" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0">               
                 </div>
                 
+                <div style=" text-align: center;">
+                    
                 <p-selectButton [options]="roles" [(ngModel)]="selectedRole" optionLabel="name"></p-selectButton>
+                </div>
+                <br><br>
                 <div>
                     <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
                     <input id="email1" type="text" placeholder="Email address" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
