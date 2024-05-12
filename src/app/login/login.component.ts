@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LayoutService } from '../services/app.layout.service'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-login',
@@ -13,11 +14,29 @@ import { LayoutService } from '../services/app.layout.service'
         }
     `]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
-    valCheck: string[] = ['remember'];
+  valCheck: string[] = ['remember'];
+  
 
-    password!: string;
+  password!: string;
+  selectedRole!: string; 
+  roles:any[]= [];
 
-    constructor(public layoutService: LayoutService) { }
+
+  constructor(public layoutService: LayoutService, public __http:HttpClient ) { }
+
+  ngOnInit(): void {
+     this.getUsers();
+     this.roles = [
+      { name: 'Administrateur', value: "Admin" },
+      { name: 'Enseignant', value: "Enseignant" },
+      { name: 'Etudiant', value: "Etudiant" }
+  ];
+}
+
+ getUsers(){
+     this.__http.get("http://localhost:3000/users").subscribe(res=>{console.log(res)})
+ }
+
 }
